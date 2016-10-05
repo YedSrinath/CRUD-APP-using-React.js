@@ -1,5 +1,6 @@
-import React,{Component} from 'react';
-import {CarRow} from "./carRow";
+import React,{ Component } from 'react';
+import { CarRow } from "./carRow";
+
 export class CarTable extends Component{
 		constructor(props) {
 			super(props);

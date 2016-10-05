@@ -1,14 +1,13 @@
-import React,{Component} from 'react';
-import {BaseComponent} from "./baseComponent";
+import React,{ Component } from 'react';
+import { BaseComponent } from "./baseComponent";
 
 export class CarForm extends BaseComponent{
 		constructor(props) {
 			super(props);
-      let car = {
+      const car = {
         make: '',
         model: '',
-        year: '',
-        color: ''
+        year: ''
       };
       this.state = {
         car: car
@@ -17,7 +16,6 @@ export class CarForm extends BaseComponent{
       this.onChange = this.onChange.bind(this);
       this.submitForm = this.submitForm.bind(this);
 		}
-
 
     submitForm(e) {
       e.preventDefault();
@@ -38,11 +36,25 @@ export class CarForm extends BaseComponent{
             </div>
             <div className="form-group">
                 <label htmlFor="year">Year</label>
-                <input type="text" className="form-control" placeholder="Year" name="year" id="year" value={car.year} onChange={this.onChange} />
+								<select className="form-control" id="select-dropdown-year" name="year" value={car.year} onChange={this.onChange}>
+											<option value=''>Select Year</option>
+												<option value='2016'>2016</option>
+												<option value='2015'>2015</option>
+												<option value='2014'>2014</option>
+												<option value='2013'>2013</option>
+												<option value='2012'>2012</option>
+							  </select>
             </div>
             <div className="form-group">
-                <label htmlFor="color">Color</label>
-                <input type="text" className="form-control" placeholder="Color" name="color" id="color" value={car.color} onChange={this.onChange} />
+                <label htmlFor="select-dropdown">Color:</label>
+
+								<select className="form-control" id="select-dropdown" name="color" value={car.color} onChange={this.onChange}>
+												<option value=''>Select Color</option>
+												<option value='White'>white</option>
+												<option value='Black'>black</option>
+												<option value='Silver'>silver</option>
+												<option value='Blue'>blue</option>
+							  </select>
             </div>
             <button
             type="submit" className="btn btn-primary"

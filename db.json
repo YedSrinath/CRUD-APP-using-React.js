@@ -1,4 +1,62 @@
 {
+  "cars": [
+    {
+      "id": 1,
+      "make": "Audi",
+      "model": "A5",
+      "color": "White",
+      "year": 2013
+    },
+    {
+      "id": 2,
+      "make": "Dodge",
+      "model": "Challenger",
+      "color": "blue",
+      "year": 2003
+    },
+    {
+      "id": 3,
+      "make": "Ford",
+      "model": "Fusion",
+      "color": "Silver",
+      "year": 2003
+    },
+    {
+      "id": 4,
+      "make": "Mazda",
+      "model": "md5",
+      "year": 2014,
+      "color": "Black"
+    },
+    {
+      "id": 5,
+      "make": "BMW",
+      "model": "330i",
+      "year": 2012,
+      "color": "Black"
+    },
+    {
+      "make": "Merc",
+      "model": "s500",
+      "year": 2016,
+      "color": "White",
+      "id": 6
+    },
+    {
+      "make": "Rangerover",
+      "model": "Evoque",
+      "year": 2016,
+      "color": "Black",
+      "id": 7
+    },
+    {
+      "make": "Honda",
+      "model": "Accord",
+      "year": 2013,
+      "color": "White",
+      "id": 8
+    }
+  ],
   "owners": [
     {
       "id": 1,
@@ -73,6 +131,22 @@
       "size": "a",
       "quantity": 5,
       "id": 7
+    },
+    {
+      "name": "New Widget",
+      "color": "red",
+      "size": "tiny",
+      "quantity": 2,
+      "description": "test",
+      "id": 8
+    },
+    {
+      "name": "New Widget",
+      "color": "red",
+      "size": "tiny",
+      "quantity": 2,
+      "description": "test",
+      "id": 9
     }
   ],
   "people": [

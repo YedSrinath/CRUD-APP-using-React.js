@@ -1,5 +1,7 @@
-import React,{Component} from 'react';
+import React,{ Component } from 'react';
 import { BaseComponent } from "./baseComponent";
+import {CarRowForm} from "./carRowForm";
+import {CarRowDisplay} from "./carRowDisplay";
 
 export class CarRow extends BaseComponent{
 		constructor(props) {
@@ -15,7 +17,7 @@ export class CarRow extends BaseComponent{
 
 		}
     toggleEditCar(){
-      this.setState({
+    	this.setState({
         editMode:!this.state.editMode,
         car: {
           ...this.props.car
@@ -24,53 +26,30 @@ export class CarRow extends BaseComponent{
     }
 
     updateCar() {
-      this.props.updateCar( this.props.index, this.state.car );
-      setTimeout(()=>{
-        this.toggleEditCar();
-      });
 
+			this.props.updateCar( this.props.index, this.state.car );
+			this.setState({
+        editMode:!this.state.editMode
+			});
     }
+
+		componentWillReceiveProps(next) {
+			if(next.car) {
+				this.setState({
+					car: {
+						...next.car
+					}
+				});
+			}
+		}
 
 		render(){
       let {car} = this.state;
-			return(
-        !this.state.editMode?
-        <tr>
-          <td> {car.make} </td>
-          <td> {car.model} </td>
-          <td> {car.year} </td>
-          <td> {car.color} </td>
-          <td>
-            <button type="button" className="btn btn-primary" onClick={this.toggleEditCar}>
-            <span className="glyphicon glyphicon-pencil"></span>
-            </button>
-          </td>
-        </tr>
-        :
-        <tr>
-          <td>
-            <input type="text" className="form-control" placeholder="Make" name="make" id="make" value={car.make} onChange={this.onChange} />
-          </td>
-          <td>
-            <input type="text" className="form-control" placeholder="Model" name="model" id="model" value={car.model} onChange={this.onChange} />
-          </td>
-          <td>
-            <input type="text" className="form-control" placeholder="Year" name="year" id="year" value={car.year} onChange={this.onChange} />
-          </td>
-          <td>
-            <input type="text" className="form-control" placeholder="Color" name="color" id="color" value={car.color} onChange={this.onChange} />
-          </td>
-          <td>
-            <button type="button" className="btn btn-primary" onClick={this.updateCar}>
-              Save
-            </button>
-            {/*<button type="button" className="btn btn-danger" onClick={this.toggleEditCar}>
-              Cancel
-            </button>*/}
+			if( this.state.editMode ) {
+				return <CarRowForm car={car}  toggleEditCar={this.toggleEditCar}  updateCar={this.updateCar} onChange={this.onChange}/>;
+			}
+			return <CarRowDisplay car={car}  toggleEditCar={this.toggleEditCar} />;
 
-          </td>
-        </tr>
-			)
 		}
 
 }
